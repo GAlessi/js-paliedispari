@@ -36,7 +36,6 @@
                     if (userNumber >= 0 && userNumber <= 5) {
                         var rnd = Math.floor(Math.random() * 5) + 1;
                         var tot = userNumber + rnd;
-                        console.log(tot);
                         if ((tot % 2 == 0 && guess === "p") || (tot % 2 == 1 && guess === "d")) {
                             console.log("Il totale è: " + tot + " Player WINS");
                         }else {
