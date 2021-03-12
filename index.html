@@ -30,40 +30,37 @@
             var letterPositive;
             var letterNegative;
             var result = "Non è palindroma";
-            function palindromeVerifier() {
-                var word = prompt("Inserisci una parola e ti dirò se è palindroma");
+            function palindromeVerifier(word) {
                 for (var i = 0; i < (word.length / 2); i++) {
                     letterPositive = word[i];
                     letterNegative = word[word.length - i - 1];
                     if (letterPositive !== letterNegative) {
-                        result = "non è palindroma"
+                        result = false;
                         break;
                     }else {
-                        result = "è palindroma"
+                        result = true;
                     }
+
                 }
-                console.log(word + " " + result);
+                return result;
+                // console.log(word + " " + result);
             }
 
 
 //L'utente sceglie pari o dispari e un numero da 1 a 5. Generiamo un numero random (sempre da 1 a 5) per il computer. Sommiamo i due numeri e dichiariamo chi ha vinto.
             function evenAndOdd() {
                 var guess = prompt('Scrivi "p" per Pari o "d" per Dispari').toLowerCase();
-                if (guess === "p" || guess === "d") {
-                    var userNumber = parseInt(prompt('Inserisci un numero compreso tra 1 e 5'));
-                    if (userNumber >= 0 && userNumber <= 5) {
-                        var rnd = Math.floor(Math.random() * 5) + 1;
-                        var tot = userNumber + rnd;
+                var userNumber = parseInt(prompt('Inserisci un numero compreso tra 1 e 5'));
+                if ((guess === "p" || guess === "d") && (userNumber > 0 && userNumber <= 5)) {
+                    var rnd = Math.floor(Math.random() * 5) + 1;
+                    var tot = userNumber + rnd;
                         if ((tot % 2 == 0 && guess === "p") || (tot % 2 == 1 && guess === "d")) {
                             console.log("Il totale è: " + tot + " player choose: " + guess + " Player WINS");
                         }else {
                             console.log("Il totale è: " + tot + " player choose: " + guess + " Computer WINS, please try again");
                         }
-                    }else {
-                        alert("Sono accettati solo numeri compresi tra 1 e 5");
-                    }
                 }else {
-                    alert('Inserisci una "p" o una "d" per proseguire' )
+                    alert("Dati inseriti non congrui" )
                     return;
                 }
             }
@@ -73,7 +70,13 @@
             var es2 = document.getElementById('es2');
 
             es1.addEventListener('click', function () {
-                palindromeVerifier();
+                var parola = prompt("Inserisci una parola e ti dirò se è palindroma");
+
+                if (palindromeVerifier(parola)) {
+                    console.log('palindroma');
+                }else {
+                    console.log('non palindroma');
+                }
             })
 
             es2.addEventListener('click', function () {
