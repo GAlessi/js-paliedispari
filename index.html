@@ -9,27 +9,27 @@
 
 //creare una funzione per capire se la parola è palindroma
 
-            var word = prompt("Inserisci una parola e ti dirò se è palindroma");
             var letterPositive;
             var letterNegative;
-            var palindroma = "Non è palindroma";
+            var result = "Non è palindroma";
             function palindromeVerifier() {
+                var word = prompt("Inserisci una parola e ti dirò se è palindroma");
                 for (var i = 0; i < (word.length / 2); i++) {
                     letterPositive = word[i];
                     letterNegative = word[word.length - i - 1];
                     if (letterPositive !== letterNegative) {
-                        palindrome = "non è palindroma"
+                        result = "non è palindroma"
                         break;
                     }else {
-                        palindrome = "è palindroma"
+                        result = "è palindroma"
                     }
                 }
-                console.log(word + " " + palindrome);
+                console.log(word + " " + result);
             }
 
 
-
-            palindromeVerifier();  //Primo esercizio
+//Primo Esercizio
+            palindromeVerifier(); 
         </script>
     </body>
 </html>
