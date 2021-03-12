@@ -28,8 +28,34 @@
             }
 
 
+//L'utente sceglie pari o dispari e un numero da 1 a 5. Generiamo un numero random (sempre da 1 a 5) per il computer. Sommiamo i due numeri e dichiariamo chi ha vinto.
+            function evenAndOdd() {
+                var guess = prompt('Scrivi "p" per Pari o "d" per Dispari').toLowerCase();
+                if (guess === "p" || guess === "d") {
+                    var userNumber = parseInt(prompt('Inserisci un numero compreso tra 1 e 5'));
+                    if (userNumber >= 0 && userNumber <= 5) {
+                        var rnd = Math.floor(Math.random() * 5) + 1;
+                        var tot = userNumber + rnd;
+                        console.log(tot);
+                        if ((tot % 2 == 0 && guess === "p") || (tot % 2 == 1 && guess === "d")) {
+                            console.log("Il totale è: " + tot + " Player WINS");
+                        }else {
+                            console.log("Il totale è: " + tot + "Computer WINS, please try again");
+                        }
+                    }else {
+                        alert("Sono accettati solo numeri compresi tra 1 e 5");
+                    }
+                }else {
+                    alert('Inserisci una "p" o una "d" per proseguire' )
+                    return;
+                }
+            }
+
 //Primo Esercizio
-            palindromeVerifier(); 
+            // palindromeVerifier();
+
+//Secondo Esercizio
+            evenAndOdd();
         </script>
     </body>
 </html>
